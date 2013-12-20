@@ -1,4 +1,4 @@
-package design.domain.example1;
+package design.domain.example2;
 
 import static java.util.Objects.requireNonNull;
 
@@ -7,22 +7,22 @@ import javax.persistence.Id;
 import javax.persistence.Version;
 
 @Entity
-public class Example1 {
+public class Example2 {
 
 	@Id
-	private String id;
+	private Example2Identifier id;
 
 	@Version
 	private Integer version;
 
-	Example1() {
+	Example2() {
 	}
 
-	public Example1(String id) {
+	public Example2(Example2Identifier id) {
 		this.id = requireNonNull(id);
 	}
 
-	public String getId() {
+	public Example2Identifier getId() {
 		return id;
 	}
 

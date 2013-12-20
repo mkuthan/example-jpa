@@ -16,7 +16,6 @@ public class JpaExample1RepositoryTest extends AbstractJpaRepositoryTest {
 	public void shouldSave() {
 		// given
 		Example1 givenEntity = new Example1("any id");
-		givenEntity.setField("any value");
 
 		// when
 		repository.save(givenEntity);
@@ -26,7 +25,6 @@ public class JpaExample1RepositoryTest extends AbstractJpaRepositoryTest {
 		Example1 entity = repository.load(givenEntity.getId());
 
 		assertThat(entity.getId()).isEqualTo(givenEntity.getId());
-		assertThat(entity.getField()).isEqualTo(givenEntity.getField());
 	}
 
 	public void shouldDelete() {
@@ -34,7 +32,7 @@ public class JpaExample1RepositoryTest extends AbstractJpaRepositoryTest {
 		String id = "any id";
 		persistFlushAndClear(new Example1(id));
 		Example1 entity = repository.load(id);
-		
+
 		// when
 		repository.delete(entity);
 		clear();
