@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import org.hibernate.ejb.AvailableSettings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -38,7 +39,7 @@ public class JpaConfig {
 		jpaVendorAdapter.setShowSql(true);
 
 		Map<String, Object> jpaProperties = new HashMap<>();
-		jpaProperties.put("hibernate.ejb.naming_strategy", FixedPrefixNamingStrategy.class.getName());
+		jpaProperties.put(AvailableSettings.NAMING_STRATEGY, FixedPrefixNamingStrategy.class.getName());
 
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 
