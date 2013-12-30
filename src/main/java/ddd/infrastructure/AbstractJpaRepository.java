@@ -38,7 +38,6 @@ public abstract class AbstractJpaRepository<E, K extends Serializable> implement
 
 		if (entity == null) {
 			throw new ObjectRetrievalFailureException(entityClass, id);
-
 		}
 
 		beanFactory.autowireBean(entity);

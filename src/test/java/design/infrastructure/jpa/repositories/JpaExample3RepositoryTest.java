@@ -51,8 +51,8 @@ public class JpaExample3RepositoryTest extends AbstractJpaRepositoryTest {
 		assertThat(isExist(Example3.class, id)).isFalse();
 	}
 
-	@Test(enabled = false)
-	public void shouldUpdate() {
+	@Test
+	public void shouldEditDetails() {
 		// given
 		String id = "any id";
 		Set<Example3Detail> details = newHashSet(new Example3Detail("first"), new Example3Detail("second"),
@@ -62,8 +62,8 @@ public class JpaExample3RepositoryTest extends AbstractJpaRepositoryTest {
 		Example3 entity = repository.load(id);
 
 		// when
-		Set<Example3Detail> newDetails = newHashSet(new Example3Detail("first"), new Example3Detail("second"));
-		entity.setDetails(details);
+		Set<Example3Detail> newDetails = newHashSet(new Example3Detail("foo"), new Example3Detail("bar"));
+		entity.editDetails(newDetails);
 		repository.save(entity);
 		clear();
 
