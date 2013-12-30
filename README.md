@@ -14,3 +14,10 @@ Example 2
 ---------
 
 Aggregate entity with embeddable identifier. 
+
+
+Example 3
+---------
+
+Aggregate entity with complex value object. 
+
