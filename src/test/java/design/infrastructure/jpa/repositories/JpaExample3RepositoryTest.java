@@ -1,7 +1,7 @@
 package design.infrastructure.jpa.repositories;
 
 import static com.google.common.collect.Sets.newHashSet;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Set;
 
