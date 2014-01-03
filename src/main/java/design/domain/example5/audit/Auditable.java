@@ -4,8 +4,8 @@ import java.util.Date;
 
 public interface Auditable {
 
-        void updateAudit(Date modificationDate, AuditIdentity modifier);
+	void updateAudit(Date modificationDate, AuditIdentity modifier);
 
-        Audit getAudit();
+	Audit getAudit();
 
 }

@@ -10,13 +10,13 @@ import design.domain.example5.audit.Auditable;
 import design.domain.example5.audit.Auditor;
 
 @Component
-public class AuditListener {
+public class JpaAuditListener {
 
 	private static Auditor auditor;
 
 	@Autowired
 	public void setDateTimeProvider(Auditor auditor) {
-		AuditListener.auditor = auditor;
+		JpaAuditListener.auditor = auditor;
 	}
 
 	@PrePersist

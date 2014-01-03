@@ -23,7 +23,7 @@ public class Example5 implements Auditable {
 	private Integer version;
 
 	@Embedded
-	private Audit audit;
+	private Audit audit = Audit.NULL;
 
 	Example5() {
 	}
@@ -42,7 +42,7 @@ public class Example5 implements Auditable {
 
 	@Override
 	public void updateAudit(Date modificationDate, AuditIdentity modifier) {
-		audit.update(modificationDate, modifier);
+		this.audit = audit.update(modificationDate, modifier);
 	}
 
 	@Override
