@@ -1,6 +1,7 @@
 package design.domain.example3;
 
-import static com.google.common.collect.Sets.newHashSet;
+import static design.domain.example3.Example3DetailEntity.toEntities;
+import static design.domain.example3.Example3DetailEntity.toValueObjects;
 import static java.util.Objects.requireNonNull;
 
 import java.util.HashSet;
@@ -15,8 +16,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.PostLoad;
 import javax.persistence.Transient;
 import javax.persistence.Version;
-
-import com.google.common.collect.FluentIterable;
 
 @Entity
 public class Example3 {
@@ -44,6 +43,11 @@ public class Example3 {
 		supplyDetailsEntities();
 	}
 
+	@PostLoad
+	void supplyDetails() {
+		this.details = toValueObjects(detailEntities);
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -66,19 +70,6 @@ public class Example3 {
 	private void supplyDetailsEntities() {
 		this.detailEntities.clear();
 		this.detailEntities.addAll(toEntities(this.details));
-	}
-
-	@PostLoad
-	void supplyDetails() {
-		this.details = toValueObjects(detailEntities);
-	}
-
-	private Set<Example3Detail> toValueObjects(Set<Example3DetailEntity> detailEntities) {
-		return newHashSet(FluentIterable.from(detailEntities).transform(Example3DetailEntity.toValueObject()));
-	}
-
-	private HashSet<Example3DetailEntity> toEntities(Set<Example3Detail> details) {
-		return newHashSet(FluentIterable.from(details).transform(Example3DetailEntity.toEntity()));
 	}
 
 }

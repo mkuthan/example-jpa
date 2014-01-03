@@ -1,4 +1,4 @@
-package design.infrastructure.jpa.repositories;
+package design.infrastructure.jpa;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +9,7 @@ import org.hibernate.ejb.AvailableSettings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -17,10 +18,11 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import design.infrastructure.jpa.FixedPrefixNamingStrategy;
+import ddd.infrastructure.DddConfig;
 
 @Configuration
 @ComponentScan
+@Import({ DddConfig.class })
 public class JpaConfig {
 
 	@Bean

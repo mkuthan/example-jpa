@@ -2,7 +2,7 @@ package design.infrastructure.jpa.repositories;
 
 import org.springframework.stereotype.Component;
 
-import ddd.infrastructure.AbstractJpaRepository;
+import ddd.infrastructure.jpa.AbstractJpaRepository;
 import design.domain.example2.Example2;
 import design.domain.example2.Example2Identifier;
 import design.domain.example2.Example2Repository;

@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.annotations.Test;
 
 import design.domain.example1.Example1;
+import design.domain.example1.Example1Repository;
 
 @Test
 public class JpaExample1RepositoryTest extends AbstractJpaRepositoryTest {
 
 	@Autowired
-	private JpaExample1Repository repository;
+	private Example1Repository repository;
 
 	public void shouldSave() {
 		// given
