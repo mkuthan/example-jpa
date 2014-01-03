@@ -5,7 +5,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.hibernate.ejb.AvailableSettings;
+import org.hibernate.jpa.AvailableSettings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -61,4 +61,5 @@ public class JpaConfig {
 
 		return transactionManager;
 	}
+	
 }
