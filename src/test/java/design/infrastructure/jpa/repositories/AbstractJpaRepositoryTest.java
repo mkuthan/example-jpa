@@ -8,6 +8,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 
+import design.infrastructure.jpa.JpaConfig;
+
 @ContextConfiguration(classes = JpaConfig.class)
 public abstract class AbstractJpaRepositoryTest extends AbstractTransactionalTestNGSpringContextTests {
 

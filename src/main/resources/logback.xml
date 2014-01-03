@@ -6,8 +6,6 @@
 		</encoder>
 	</appender>
 
-	<logger name="design" level="DEBUG" />
-
 	<!-- <logger name="org.springframework" level="DEBUG" /> -->
 	<!-- <logger name="org.hibernate" level="DEBUG" /> -->
 

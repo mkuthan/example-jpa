@@ -1,27 +1,21 @@
-package ddd.infrastructure;
+package ddd.infrastructure.jpa;
 
 import static java.util.Objects.requireNonNull;
 
-import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.orm.ObjectRetrievalFailureException;
 
 import ddd.domain.Repository;
 
-public abstract class AbstractJpaRepository<E, K extends Serializable> implements Repository<E, K> {
+public abstract class AbstractJpaRepository<E, K> implements Repository<E, K> {
 
 	@PersistenceContext
 	private EntityManager entityManager;
-
-	@Autowired
-	private AutowireCapableBeanFactory beanFactory;
 
 	private Class<E> entityClass;
 
@@ -39,8 +33,6 @@ public abstract class AbstractJpaRepository<E, K extends Serializable> implement
 		if (entity == null) {
 			throw new ObjectRetrievalFailureException(entityClass, id);
 		}
-
-		beanFactory.autowireBean(entity);
 
 		return entity;
 	}

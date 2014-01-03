@@ -7,12 +7,13 @@ import org.testng.annotations.Test;
 
 import design.domain.example2.Example2;
 import design.domain.example2.Example2Identifier;
+import design.domain.example2.Example2Repository;
 
 @Test
 public class JpaExample2RepositoryTest extends AbstractJpaRepositoryTest {
 
 	@Autowired
-	private JpaExample2Repository repository;
+	private Example2Repository repository;
 
 	public void shouldSave() {
 		// given

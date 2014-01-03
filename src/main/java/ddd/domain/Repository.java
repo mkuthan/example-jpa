@@ -1,8 +1,7 @@
 package ddd.domain;
 
-import java.io.Serializable;
 
-public interface Repository<E, K extends Serializable> {
+public interface Repository<E, K> {
 
 	E load(K entityId);
 

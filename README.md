@@ -21,3 +21,8 @@ Example 3
 
 Aggregate entity with complex value object. 
 
+Example 4
+---------
+
+Aggregate entity managed by spring.
+
