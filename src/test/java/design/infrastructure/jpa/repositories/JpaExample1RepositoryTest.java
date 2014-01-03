@@ -16,16 +16,18 @@ public class JpaExample1RepositoryTest extends AbstractJpaRepositoryTest {
 
 	public void shouldSave() {
 		// given
-		Example1 givenEntity = new Example1("any id");
+		String id = "any id";
+		
+		Example1 givenEntity = new Example1(id);
 
 		// when
 		repository.save(givenEntity);
 		clear();
 
 		// then
-		Example1 entity = repository.load(givenEntity.getId());
+		Example1 entity = repository.load(id);
 
-		assertThat(entity.getId()).isEqualTo(givenEntity.getId());
+		assertThat(entity.getId()).isEqualTo(id);
 	}
 
 	public void shouldDelete() {

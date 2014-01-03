@@ -20,17 +20,19 @@ public class JpaExample3RepositoryTest extends AbstractJpaRepositoryTest {
 
 	public void shouldSave() {
 		// given
+		String id = "any id";
+		
 		Set<Example3Detail> details = newHashSet(new Example3Detail("first"), new Example3Detail("second"),
 				new Example3Detail("third"));
 
-		Example3 givenEntity = new Example3("any id", details);
+		Example3 givenEntity = new Example3(id, details);
 
 		// when
 		repository.save(givenEntity);
 		clear();
 
 		// then
-		Example3 entity = repository.load(givenEntity.getId());
+		Example3 entity = repository.load(id);
 
 		assertThat(entity.getDetails()).isEqualTo(details);
 	}

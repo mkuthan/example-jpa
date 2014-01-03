@@ -26,3 +26,8 @@ Example 4
 
 Aggregate entity managed by spring.
 
+Example 4
+---------
+
+Aggregate entity with simple audit.
+

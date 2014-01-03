@@ -5,9 +5,13 @@ import java.io.Serializable;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.mockito.Mockito;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 
+import design.domain.example5.audit.Auditor;
 import design.infrastructure.jpa.JpaConfig;
 
 @ContextConfiguration(classes = JpaConfig.class)
@@ -28,6 +32,16 @@ public abstract class AbstractJpaRepositoryTest extends AbstractTransactionalTes
 
 	protected void clear() {
 		entityManager.clear();
+	}
+
+	@Configuration
+	public static class Config {
+
+		@Bean
+		public Auditor auditor() {
+			return Mockito.mock(Auditor.class);
+		}
+
 	}
 
 }

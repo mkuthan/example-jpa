@@ -5,7 +5,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.hibernate.ejb.AvailableSettings;
+import org.hibernate.jpa.AvailableSettings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -47,6 +47,7 @@ public class JpaConfig {
 
 		entityManagerFactoryBean.setDataSource(dataSource());
 		entityManagerFactoryBean.setPackagesToScan("design.domain");
+		entityManagerFactoryBean.setMappingResources("orm.xml");
 		entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
 		entityManagerFactoryBean.setJpaPropertyMap(jpaProperties);
 
@@ -61,4 +62,5 @@ public class JpaConfig {
 
 		return transactionManager;
 	}
+	
 }
