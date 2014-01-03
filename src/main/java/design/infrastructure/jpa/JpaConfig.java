@@ -46,7 +46,7 @@ public class JpaConfig {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 
 		entityManagerFactoryBean.setDataSource(dataSource());
-		entityManagerFactoryBean.setPackagesToScan("design.domain");
+		entityManagerFactoryBean.setPackagesToScan("design");
 		entityManagerFactoryBean.setMappingResources("orm.xml");
 		entityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter);
 		entityManagerFactoryBean.setJpaPropertyMap(jpaProperties);

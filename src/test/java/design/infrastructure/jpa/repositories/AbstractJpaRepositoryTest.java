@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 
 import design.domain.example5.audit.Auditor;
+import design.domain.example6.clob.ClobSerializer;
 import design.infrastructure.jpa.JpaConfig;
 
 @ContextConfiguration(classes = JpaConfig.class)
@@ -40,6 +41,11 @@ public abstract class AbstractJpaRepositoryTest extends AbstractTransactionalTes
 		@Bean
 		public Auditor auditor() {
 			return Mockito.mock(Auditor.class);
+		}
+
+		@Bean
+		public ClobSerializer clobSerializer() {
+			return Mockito.mock(ClobSerializer.class);
 		}
 
 	}

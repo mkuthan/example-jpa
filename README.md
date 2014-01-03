@@ -31,3 +31,7 @@ Example 5
 
 Aggregate entity with simple audit.
 
+Example 6
+---------
+
+Custom type for CLOB (e.g: JSON).

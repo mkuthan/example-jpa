@@ -38,10 +38,10 @@ public class Audit extends AbstractValueObject {
 			@AttributeOverride(name = AuditIdentity.DETAILS_PROPERTY_NAME, column = @Column(name = "audit_modifier_details", nullable = false)) })
 	private AuditIdentity modifier;
 
-	protected Audit() {
+	Audit() {
 	}
 
-	protected Audit(Date creationDate, AuditIdentity creator, Date modificationDate, AuditIdentity modifier) {
+	Audit(Date creationDate, AuditIdentity creator, Date modificationDate, AuditIdentity modifier) {
 		this.creationDate = requireNonNull(creationDate);
 		this.creator = requireNonNull(creator);
 		this.modificationDate = requireNonNull(modificationDate);
