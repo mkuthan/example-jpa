@@ -1,6 +1,6 @@
 # JPA best practices, tips and tricks
 
-[![Build Status](https://travis-ci.org/mkuthan/example.domain-jpa.png)](https://travis-ci.org/mkuthan/example.domain-jpa) [![Coverage Status](https://coveralls.io/repos/mkuthan/example.domain-jpa/badge.png)](https://coveralls.io/r/mkuthan/example.domain-jpa)
+[![Build Status](https://travis-ci.org/mkuthan/example-jpa.png)](https://travis-ci.org/mkuthan/example-jpa) [![Coverage Status](https://coveralls.io/repos/mkuthan/example-jpa/badge.png)](https://coveralls.io/r/mkuthan/example-jpa)
 
 Examples
 ========
