@@ -74,8 +74,8 @@ public class ClobHolderType extends AbstractCustomType implements CompositeUserT
 		if (type == null && data == null) {
 			return null;
 		} else {
-			Object json = clobSerializer.fromClob(data, type);
-			return ClobHolder.of(json);
+			Object clob = clobSerializer.fromClob(data, type);
+			return ClobHolder.of(clob);
 		}
 	}
 

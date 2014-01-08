@@ -3,18 +3,24 @@ package example.infrastructure.jpa.repositories;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
+import ddd.infrastructure.jpa.JpaRepositoryHelper;
 import example.domain.example2.Example2;
 import example.domain.example2.Example2Identifier;
 import example.domain.example2.Example2Repository;
 
+@JpaRepositoryTest
 @Test
-public class JpaExample2RepositoryTest extends AbstractJpaRepositoryTest {
+public class JpaExample2RepositoryTest extends AbstractTransactionalTestNGSpringContextTests {
 
 	@Autowired
 	private Example2Repository repository;
 
+	@Autowired
+	private JpaRepositoryHelper helper;
+	
 	public void shouldSave() {
 		// given
 		Example2Identifier id = new Example2Identifier("any id");
@@ -23,7 +29,7 @@ public class JpaExample2RepositoryTest extends AbstractJpaRepositoryTest {
 
 		// when
 		repository.save(givenEntity);
-		clear();
+		helper.clear();
 
 		// then
 		Example2 entity = repository.load(id);
@@ -34,14 +40,14 @@ public class JpaExample2RepositoryTest extends AbstractJpaRepositoryTest {
 	public void shouldDelete() {
 		// given
 		Example2Identifier id = new Example2Identifier("any id");
-		persistFlushAndClear(new Example2(id));
+		helper.persistFlushAndClear(new Example2(id));
 		Example2 entity = repository.load(id);
 
 		// when
 		repository.delete(entity);
-		clear();
+		helper.clear();
 
 		// then
-		assertThat(isExist(Example2.class, id)).isFalse();
+		assertThat(helper.isExist(Example2.class, id)).isFalse();
 	}
 }

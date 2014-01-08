@@ -6,18 +6,24 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
+import ddd.infrastructure.jpa.JpaRepositoryHelper;
 import example.domain.example3.Example3;
 import example.domain.example3.Example3Detail;
 import example.domain.example3.Example3Repository;
 
+@JpaRepositoryTest
 @Test
-public class JpaExample3RepositoryTest extends AbstractJpaRepositoryTest {
+public class JpaExample3RepositoryTest extends AbstractTransactionalTestNGSpringContextTests {
 
 	@Autowired
 	private Example3Repository repository;
 
+	@Autowired
+	private JpaRepositoryHelper helper;
+	
 	public void shouldSave() {
 		// given
 		String id = "any id";
@@ -29,7 +35,7 @@ public class JpaExample3RepositoryTest extends AbstractJpaRepositoryTest {
 
 		// when
 		repository.save(givenEntity);
-		clear();
+		helper.clear();
 
 		// then
 		Example3 entity = repository.load(id);
@@ -43,15 +49,15 @@ public class JpaExample3RepositoryTest extends AbstractJpaRepositoryTest {
 		Set<Example3Detail> details = newHashSet(new Example3Detail("first"), new Example3Detail("second"),
 				new Example3Detail("third"));
 
-		persistFlushAndClear(new Example3(id, details));
+		helper.persistFlushAndClear(new Example3(id, details));
 		Example3 entity = repository.load(id);
 
 		// when
 		repository.delete(entity);
-		clear();
+		helper.clear();
 
 		// then
-		assertThat(isExist(Example3.class, id)).isFalse();
+		assertThat(helper.isExist(Example3.class, id)).isFalse();
 	}
 
 	@Test
@@ -61,14 +67,14 @@ public class JpaExample3RepositoryTest extends AbstractJpaRepositoryTest {
 		Set<Example3Detail> details = newHashSet(new Example3Detail("first"), new Example3Detail("second"),
 				new Example3Detail("third"));
 
-		persistFlushAndClear(new Example3(id, details));
+		helper.persistFlushAndClear(new Example3(id, details));
 		Example3 entity = repository.load(id);
 
 		// when
 		Set<Example3Detail> newDetails = newHashSet(new Example3Detail("foo"), new Example3Detail("bar"));
 		entity.editDetails(newDetails);
 		repository.save(entity);
-		clear();
+		helper.clear();
 
 		// then
 		entity = repository.load(id);

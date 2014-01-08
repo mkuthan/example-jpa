@@ -12,7 +12,7 @@ import org.springframework.orm.ObjectRetrievalFailureException;
 
 import ddd.domain.Repository;
 
-public abstract class AbstractJpaRepository<E, K> implements Repository<E, K> {
+public class GenericJpaRepository<E, K> implements Repository<E, K> {
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -20,7 +20,7 @@ public abstract class AbstractJpaRepository<E, K> implements Repository<E, K> {
 	private Class<E> entityClass;
 
 	@SuppressWarnings("unchecked")
-	public AbstractJpaRepository() {
+	public GenericJpaRepository() {
 		this.entityClass = ((Class<E>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
 	}
 

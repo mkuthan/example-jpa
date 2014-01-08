@@ -9,22 +9,28 @@ import java.util.Date;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.Test;
 
+import ddd.infrastructure.jpa.JpaRepositoryHelper;
 import example.domain.example5.Example5;
 import example.domain.example5.Example5Repository;
 import example.domain.example5.audit.AuditIdentity;
 import example.domain.example5.audit.Auditable;
 import example.domain.example5.audit.Auditor;
 
+@JpaRepositoryTest
 @Test
-public class JpaExample5RepositoryTest extends AbstractJpaRepositoryTest {
+public class JpaExample5RepositoryTest extends AbstractTransactionalTestNGSpringContextTests {
 
 	@Autowired
 	private Example5Repository repository;
 
 	@Autowired
 	private Auditor auditor;
+	
+	@Autowired
+	private JpaRepositoryHelper helper;
 
 	public void shouldUpdateAudit() {
 		// given
@@ -42,7 +48,7 @@ public class JpaExample5RepositoryTest extends AbstractJpaRepositoryTest {
 		doAnswer(new AuditorAnswer(creationDate, creator)).when(auditor).applyOn(any(Auditable.class));
 
 		repository.save(entity);
-		clear();
+		helper.clear();
 
 		// then
 		entity = repository.load(id);
@@ -56,7 +62,7 @@ public class JpaExample5RepositoryTest extends AbstractJpaRepositoryTest {
 		doAnswer(new AuditorAnswer(modificationDate, modifier)).when(auditor).applyOn(any(Auditable.class));
 
 		repository.save(entity);
-		clear();
+		helper.clear();
 
 		// then
 		entity = repository.load(id);
