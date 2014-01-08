@@ -14,6 +14,9 @@ public class Example2Identifier extends AbstractValueObject {
 
 	private String id;
 
+	Example2Identifier() {
+	}
+	
 	public Example2Identifier(String id) {
 		this.id = requireNonNull(id);
 	}

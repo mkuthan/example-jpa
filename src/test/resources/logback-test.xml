@@ -5,8 +5,11 @@
 		</encoder>
 	</appender>
 
-	<!-- <logger name="org.springframework" level="DEBUG" /> -->
-	<!-- <logger name="org.hibernate" level="DEBUG" /> -->
+	<logger name="ddd" level="INFO" />
+	<logger name="example" level="INFO" />
+	
+	<logger name="org.springframework" level="INFO" />
+	<logger name="org.hibernate" level="INFO" />
 
 	<root level="OFF">
 		<appender-ref ref="STDOUT" />
