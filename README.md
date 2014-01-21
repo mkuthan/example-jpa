@@ -41,3 +41,9 @@ Example 7
 
 Sequence generator.
 
+Example 8
+---------
+
+Exception translations.
+
+
