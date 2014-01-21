@@ -9,8 +9,9 @@ import org.testng.annotations.Test;
 import ddd.infrastructure.jpa.JpaRepositoryHelper;
 import example.domain.example1.Example1;
 import example.domain.example1.Example1Repository;
+import example.infrastructure.jpa.JpaTests;
 
-@JpaRepositoryTest
+@JpaTests
 @Test
 public class JpaExample1RepositoryTest extends AbstractTransactionalTestNGSpringContextTests {
 

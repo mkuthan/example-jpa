@@ -18,8 +18,9 @@ import example.domain.example5.Example5Repository;
 import example.domain.example5.audit.AuditIdentity;
 import example.domain.example5.audit.Auditable;
 import example.domain.example5.audit.Auditor;
+import example.infrastructure.jpa.JpaTests;
 
-@JpaRepositoryTest
+@JpaTests
 @Test
 public class JpaExample5RepositoryTest extends AbstractTransactionalTestNGSpringContextTests {
 

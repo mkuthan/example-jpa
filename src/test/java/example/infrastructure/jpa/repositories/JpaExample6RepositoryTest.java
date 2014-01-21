@@ -13,8 +13,9 @@ import example.domain.example6.Example6;
 import example.domain.example6.Example6Clob;
 import example.domain.example6.Example6Repository;
 import example.domain.example6.clob.ClobSerializer;
+import example.infrastructure.jpa.JpaTests;
 
-@JpaRepositoryTest
+@JpaTests
 @Test
 public class JpaExample6RepositoryTest extends AbstractTransactionalTestNGSpringContextTests {
 

@@ -35,3 +35,9 @@ Example 6
 ---------
 
 Custom type for CLOB (e.g: JSON).
+
+Example 7
+---------
+
+Sequence generator.
+

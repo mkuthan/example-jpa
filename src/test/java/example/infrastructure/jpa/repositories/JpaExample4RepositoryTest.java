@@ -13,8 +13,9 @@ import ddd.infrastructure.jpa.JpaRepositoryHelper;
 import example.domain.example4.Example4;
 import example.domain.example4.Example4Repository;
 import example.domain.example4.Example4Service;
+import example.infrastructure.jpa.JpaTests;
 
-@JpaRepositoryTest
+@JpaTests
 @Test
 public class JpaExample4RepositoryTest extends AbstractTransactionalTestNGSpringContextTests {
 

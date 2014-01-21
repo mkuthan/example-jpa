@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class AutowireInterceptor {
+public class RepositoryAutowiringAspect {
 
 	@Autowired
 	private AutowireCapableBeanFactory beanFactory;

@@ -1,4 +1,4 @@
-package example.infrastructure.jpa.repositories;
+package example.infrastructure.jpa;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,5 +12,5 @@ import example.infrastructure.jpa.JpaConfig;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @ContextConfiguration(classes = JpaConfig.class)
-public @interface JpaRepositoryTest {
+public @interface JpaTests {
 }

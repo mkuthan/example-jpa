@@ -1,4 +1,4 @@
-package example.infrastructure.jpa.repositories;
+package example.infrastructure.jpa;
 
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +8,7 @@ import example.domain.example5.audit.Auditor;
 import example.domain.example6.clob.ClobSerializer;
 
 @Configuration
-public class JpaRepositoryTestConfig {
+public class JpaTestConfig {
 
 	@Bean
 	public Auditor auditor() {
